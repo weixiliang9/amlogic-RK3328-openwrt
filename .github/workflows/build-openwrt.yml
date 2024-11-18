@@ -18,6 +18,7 @@ on:
           - openwrt-main
           - lede-master
           - immortalwrt-master
+          - istoreos
       openwrt_board:
         description: "Select device board"
         required: false
@@ -276,6 +277,10 @@ jobs:
               REPO_URL="https://github.com/immortalwrt/immortalwrt"
               REPO_BRANCH="master"
               TAGS_NAME="immortalwrt"
+          elif [[ "${{ inputs.source_branch }}" == *"istoreos"* ]]; then
+              REPO_URL="https://gitee.com/floating_lifes/istoreos"
+              REPO_BRANCH="master"
+              TAGS_NAME="istoreos"
           else
               echo "Unknown source code repository."
               exit 1
